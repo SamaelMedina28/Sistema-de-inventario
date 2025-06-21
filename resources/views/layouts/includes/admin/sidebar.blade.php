@@ -25,33 +25,6 @@
                 ],
             ],
         ],
-        // [
-        //     'header' => 'Management',
-        // ],
-        // [
-        //     'name' => 'Orders',
-        //     'icon' => 'fas fa-shopping-cart',
-        //     'route' => route('admin.dashboard'),
-        //     'active' => request()->routeIs('admin.orders.*'),
-        // ],
-        // [
-        //     'name' => 'Users',
-        //     'icon' => 'fas fa-users',
-        //     'route' => route('admin.dashboard'),
-        //     'active' => request()->routeIs('admin.users'),
-        // ],
-        // [
-        //     'name' => 'Roles',
-        //     'icon' => 'fas fa-user-tag',
-        //     'route' => route('admin.dashboard'),
-        //     'active' => request()->routeIs('admin.roles.*'),
-        // ],
-        // [
-        //     'name' => 'Settings',
-        //     'icon' => 'fas fa-cog',
-        //     'route' => route('admin.dashboard'),
-        //     'active' => request()->routeIs('admin.settings.*'),
-        // ],
     ];
 @endphp
 <aside id="logo-sidebar"
