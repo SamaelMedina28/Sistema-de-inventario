@@ -6,5 +6,10 @@
         </a>
     </x-slot>
     <h1>Dashboard</h1>
-
+    <x-button>
+        <i class="fas fa-users me-2"></i> Users
+    </x-button>
+    <x-wireui-button>
+        <i class="fas fa-users me-2"></i> Users
+    </x-wireui-button>
 </x-admin-layout>
