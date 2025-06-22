@@ -21,7 +21,7 @@
     <!-- Font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Scripts -->
-    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Styles -->
     @livewireStyles
     {{-- alpine --}}
@@ -52,6 +52,12 @@
 
         @livewireScripts
         <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
+        
+        @if(session()->has('swal'))
+            <script>
+                Swal.fire(@json(session('swal')));
+            </script>
+        @endif
         
 </body>
 

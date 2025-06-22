@@ -3,9 +3,7 @@
         <form action="{{ route('admin.categories.store') }}" method="POST" class="space-y-4">
             @csrf
             <x-wireui-input name="name" label="Name" placeholder="Category name" value="{{ old('name') }}"/>
-            <x-wireui-textarea name="description" label="Description" placeholder="Category description">
-                {{ old('description') }}
-            </x-wireui-textarea>
+            <x-wireui-input name="description" label="Description" placeholder="Category description" value="{{ old('description') }}"/>
             <div class="flex justify-end space-x-2">
                 <x-wireui-button flat negative label="Cancel" href="{{ route('admin.categories.index') }}" />
                 <x-button type="submit">

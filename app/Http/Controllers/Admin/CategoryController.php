@@ -36,6 +36,15 @@ class CategoryController extends Controller
 
         Category::create($request->all());
 
+        session()->flash(
+            'swal',
+            [
+                'icon' => 'success',
+                'title' => 'Success',
+                'text' => 'Category created successfully',
+            ]
+        );
+
         return redirect()->route('admin.categories.index');
     }
 
@@ -61,6 +70,14 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         $category->delete();
-        return redirect()->route('admin.categories.index')->with('success', 'Category deleted successfully');
+        session()->flash(
+            'swal',
+            [
+                'icon' => 'success',
+                'title' => 'Success',
+                'text' => 'Category deleted successfully',
+            ]
+        );
+        return redirect()->route('admin.categories.index');
     }
 }
