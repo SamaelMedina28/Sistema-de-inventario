@@ -85,6 +85,17 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
+        if ($category->products()->exists()) {
+            session()->flash(
+                'swal',
+                [
+                    'icon' => 'error',
+                    'title' => 'Error',
+                    'text' => 'Category has products, cannot be deleted',
+                ]
+            );
+            return redirect()->route('admin.categories.index');
+        }
         $category->delete();
         session()->flash(
             'swal',
