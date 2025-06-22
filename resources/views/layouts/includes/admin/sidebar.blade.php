@@ -12,6 +12,12 @@
             'route' => route('admin.categories.index'),
             'active' => request()->routeIs('admin.categories.*'),
         ],
+        [
+            'name' => 'Products',
+            'icon' => 'fas fa-box',
+            'route' => route('admin.products.index'),
+            'active' => request()->routeIs('admin.products.*'),
+        ],
     ];
 @endphp
 <aside id="logo-sidebar"
