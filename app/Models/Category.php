@@ -10,4 +10,10 @@ class Category extends Model
         'name',
         'description',
     ];
+
+    // Relacion muchos a muchos
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
 }

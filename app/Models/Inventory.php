@@ -22,4 +22,22 @@ class Inventory extends Model
         'inventoryable_id',
         'inventoryable_type',
     ];
+
+    // Relacion uno a muchos
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
+
+    // Relacion uno a muchos
+    public function warehouse()
+    {
+        return $this->belongsTo(Warehouse::class);
+    }
+
+    // Relaicon polimorfica
+    public function inventoryable()
+    {
+        return $this->morphTo();
+    }
 }
