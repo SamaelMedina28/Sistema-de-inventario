@@ -1,29 +1,16 @@
 @php
     $links = [
         [
-            'header' => 'Principal',
-        ],
-        [
             'name' => 'Dashboard',
             'icon' => 'fas fa-home',
             'route' => route('admin.dashboard'),
             'active' => request()->routeIs('admin.dashboard'),
-            'submenu' => [
-                'items' => [
-                    [
-                        'name' => 'Enlace 1',
-                        'route' => '#',
-                    ],
-                    [
-                        'name' => 'Enlace 2',
-                        'route' => '#',
-                    ],
-                    [
-                        'name' => 'Enlace 3',
-                        'route' => '#',
-                    ],
-                ],
-            ],
+        ],
+        [
+            'name' => 'Categories',
+            'icon' => 'fas fa-list',
+            'route' => route('admin.categories.index'),
+            'active' => request()->routeIs('admin.categories.*'),
         ],
     ];
 @endphp
