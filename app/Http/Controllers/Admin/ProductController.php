@@ -91,6 +91,28 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
+        if ($product->inventories()->exists()) {
+            session()->flash(
+                'swal',
+                [
+                    'icon' => 'error',
+                    'title' => 'Error',
+                    'text' => 'Product has inventories',
+                ]
+            );
+            return redirect()->route('admin.products.index');
+        }
+        if ($product->purchaseOrders()->exists() || $product->quotes()->exists()) {
+            session()->flash(
+                'swal',
+                [
+                    'icon' => 'error',
+                    'title' => 'Error',
+                    'text' => 'Product has purchase orders or quotes',
+                ]
+            );
+            return redirect()->route('admin.products.index');
+        }
         $product->delete();
         session()->flash(
             'swal',
