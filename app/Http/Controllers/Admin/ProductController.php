@@ -57,7 +57,8 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        return view('admin.products.edit', compact('product'));
+        $categories = Category::all();
+        return view('admin.products.edit', compact('product', 'categories'));
     }
 
     /**
@@ -65,7 +66,24 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'price' => 'required|numeric',
+            'category_id' => 'required|exists:categories,id',
+        ]);
+
+        $product->update($request->all());
+        session()->flash(
+            'swal',
+            [
+                'icon' => 'success',
+                'title' => 'Success',
+                'text' => 'Product updated successfully',
+            ]
+        );
+
+        return redirect()->route('admin.products.index');
     }
 
     /**
@@ -73,6 +91,15 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        $product->delete();
+        session()->flash(
+            'swal',
+            [
+                'icon' => 'success',
+                'title' => 'Success',
+                'text' => 'Product deleted successfully',
+            ]
+        );
+        return redirect()->route('admin.products.index');
     }
 }

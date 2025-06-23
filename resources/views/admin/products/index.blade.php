@@ -6,7 +6,7 @@
     <x-wireui-card>
         @livewire('admin.datatables.product-table')
     </x-wireui-card>
-    {{-- @push('js')
+    @push('js')
         <script>
             const forms = document.querySelectorAll('.delete-form');
             forms.forEach(form => {
@@ -28,5 +28,5 @@
                 });
             });
         </script>
-    @endpush --}}
+    @endpush
 </x-admin-layout>
