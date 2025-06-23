@@ -17,7 +17,7 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->string('sku')->unique()->nullable();
             $table->string('barcode')->unique()->nullable();
-            $table->decimal('price', 10, 2)->default(0.00);
+            $table->decimal('price', 10, 2);
             $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
             $table->timestamps();
         });
